@@ -1,0 +1,53 @@
+# Use postgres/example user/password credentials
+version: '3.1'
+
+services:
+  redis:
+    image: docker.io/bitnami/redis:6.2
+    restart: always
+    environment:
+      REDIS_DISABLE_COMMANDS: FLUSHDB,FLUSHALL
+      REDIS_PASSWORD: password
+    ports:
+      - 6379
+    volumes:
+      - redis_data:/bitnami/redis/data
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    restart: always
+    depends_on: 
+      - redis
+    environment:
+      - REDIS_HOSTS=tititititi:redis:6379:0:password
+      - REDIS_PASSWORD=password
+      - HTTP_USER=admin
+      - HTTP_PASSWORD=password
+    ports:
+      - 8081
+  
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_USER: nightwriter
+      POSTGRES_DB: nightwriter
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8080
+
+volumes:
+  redis_data:
+    driver: local
+  db_data:
+    driver: local

@@ -1,0 +1,176 @@
+@import '@toast-ui/editor/dist/toastui-editor.css';
+@import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-gray-0: #ffffff;
+    --color-gray-100: #f7fafc;
+    --color-gray-200: #edf2f7;
+    --color-gray-300: #e2e8f0;
+    --color-gray-400: #cbd5e0;
+    --color-gray-500: #a0aec0;
+    --color-gray-600: #718096;
+    --color-gray-700: #4a5568;
+    --color-gray-800: #2d3748;
+    --color-gray-900: #1a202c;
+    --color-gray-1000: #060c18;
+    --color-gray-1100: #000000;
+
+    --color-black:#000;
+    --color-white:#fff;
+    
+    --swal2-theme-main: var(--color-gray-200);
+    --swal2-theme-content: var(--color-gray-1000);
+    --swal2-theme-border-color: #555;
+    --swal2-theme-main-darken-15: lighten(var(--swal2-theme-content), 15%);
+    --swal2-theme-main-lighten-10: darken(var(--swal2-theme-main), 10%);
+    --swal2-theme-main-lighten-25: darken(var(--swal2-theme-main), 25%);
+
+    --color-bg-primary:  var(--color-gray-100);
+    --color-bg-secondary: var(--color-gray-300);
+
+    --color-text-primary: var(--color-gray-1100);
+    --color-text-secondary: var(--color-gray-800);
+
+    --color-btn-primary: var(--color-gray-1100);
+    --color-btn-text-primary: var(--color-gray-100);
+    --color-btn-secondary: var(--color-gray-100);
+    --color-btn-text-secondary: var(--color-gray-800);
+    --color-btn-border-secondary: #var(--color-gray-800);
+
+    --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    --font-weight-normal: 400;
+    --font-weight-display: 400;
+    --font-weight-btn: 600;
+
+    --tw-ring-inset: var(--tw-empty, );
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: rgba(0, 0, 0, .0);
+    --tw-ring-color: rgba(59, 130, 246, 0.0);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+}
+
+/** purgecss start ignore */
+.dark {
+    --color-gray-1100: #ffffff;
+    --color-gray-1000: #f7fafc;
+    --color-gray-900: #edf2f7;
+    --color-gray-800: #e2e8f0;
+    --color-gray-700: #cbd5e0;
+    --color-gray-600: #a0aec0;
+    --color-gray-500: #718096;
+    --color-gray-400: #4a5568;
+    --color-gray-300: #2d3748;
+    --color-gray-200: #1a202c;
+    --color-gray-100: #060c18;
+    --color-gray-0: #000000;
+}
+/** purgecss end ignore */
+
+button {
+    @apply rounded p-2;
+
+    &:focus{
+        @apply outline-none;
+    }
+
+    &:disabled{
+        @apply cursor-not-allowed;
+        opacity: 0.5;
+    }
+
+    &.btn-primary{
+        background-color: var(--color-btn-primary);
+        color: var(--color-btn-text-primary);
+    }
+
+    &.btn-secondary{
+        background-color: var(--color-btn-secondary);
+        color: var(--color-btn-text-secondary);
+        @apply border;
+        border-color: var(--color-btn);
+    }
+
+    &.btn-green{
+        color: var(--color-btn-text-primary);
+        @apply border bg-green-500 border-green-600;
+    }
+    
+    &.btn-yellow{
+        color: var(--color-btn-text-primary);
+        @apply border bg-yellow-500 border-yellow-600;
+    }
+
+    &.btn-red{
+        color: var(--color-btn-text-primary);
+        @apply border bg-red-500 border-red-600;
+    }
+}
+
+.no-selection {
+    user-select: none; /* standard syntax */
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+}
+
+[type="checkbox"]:focus, [type="radio"]:focus {
+    outline: 0px solid transparent;
+    outline-offset: 0px;
+    --tw-ring-inset: var(--tw-empty, );
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: rgba(0,0,0,0);
+    --tw-ring-color: rgba(0,0,0,0);
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+:focus-visible {
+    @apply outline-none;
+}
+
+.btn-text-animation {
+
+    span {
+        display: inline-block;
+        max-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        -webkit-transition: max-width 0.5s linear, margin 0.5s linear;
+        transition: max-width 0.5s linear, margin 0.5s linear;
+        @apply mr-0
+    }
+    
+    &:hover span {
+        max-width: 7rem;
+        @apply mr-2
+    }
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray-1100) var(--color-bg-secondary);
+}
+
+*::-webkit-scrollbar {
+width: 12px; /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+background: orange; /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: blue; /* color of the scroll thumb */
+border-radius: 20px; /* roundness of the scroll thumb */
+border: 3px solid orange; /* creates padding around scroll thumb */
+}

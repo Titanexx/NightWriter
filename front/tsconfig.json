@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "strict": false,
+        "jsx": "preserve",
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "lib": ["esnext", "dom"],
+        "types": ["vite/client", "node"],
+        "baseUrl": "src", // This must be specified if "paths" is.
+        "paths": {
+            "@modules/*": ["modules/*"],
+            "@routes": ["routes/index.js"],
+            "@plugins/*": ["plugins/*"],
+            "@components/*": ["components/*"],
+            "@layouts/*": ["components/layouts/*"],
+            "@forms/*": ["components/forms/*"],
+            "@views/*": ["views/*"],
+            "@/*": ["*"],
+        },
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/modules/models.ts", "src/modules/collaboration.js"]
+}
+  
