@@ -4,7 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/Titanexx/NightWriter)](https://github.com/Titanexx/NightWriter/network)
 
 <p align="center">
-<img width="200" alt="logo" src="https://raw.githubusercontent.com/Titanexx/NightWriter/master/images/logo.png">
+<img width="150" alt="logo" src="https://raw.githubusercontent.com/Titanexx/NightWriter/master/images/logo.png">
 </p>
 
 > :warning: **It's an alpha release, use it at your own risk**
@@ -73,7 +73,7 @@ Otherwise, NightWriter can be used without charge under the terms of GPLv3.
 You can contribute to the project. There is still a lot to do and I have many ideas for the future.
 You can support by buying :coffee:, :tea: or :beers: [https://www.buymeacoffee.com/titanex](https://www.buymeacoffee.com/titanex)
 
-Other support way are coming.
+Other support ways are coming.
 
 ## Why support the tool ?
 
