@@ -4,7 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/Titanexx/NightWriter)](https://github.com/Titanexx/NightWriter/network)
 
 <p align="center">
-<img width="350" alt="logo" src="https://raw.githubusercontent.com/Titanexx/NightWriter/master/images/logo.png">
+<img width="200" alt="logo" src="https://raw.githubusercontent.com/Titanexx/NightWriter/master/images/logo.png">
 </p>
 
 > :warning: **It's an alpha release, use it at your own risk**
