@@ -55,12 +55,12 @@ go build
 Enjoy !
 
 # How to install on a server ?
-## With host
+## On the host
 ### The frontend
 
 The frontend uses [vitejs](https://github.com/vitejs/vite)
 
-Prequesite : node 16.x
+Prequesite: node 16.x
 
 ```
 cd front
@@ -70,12 +70,19 @@ npm run .
 
 ### The server
 
+Prequesite: go 1.16+
+
+```
+cd server
+go run .
+```
+
 ## With docker compose
 
 I assume that Docker and Docker Compose are installed.
 
-1.Clone the repo : `git clone https://github.com/Titanexx/NightWriter && cd NightWriter`
-2.Launch the server:
+1. Clone the repo : `git clone https://github.com/Titanexx/NightWriter && cd NightWriter`
+2. Launch the server:
     1. Build the frontend : `docker-compose run frontend`
     2. Start the server : `docker-compose up" (or "docker-compose up -d" if you want detach it)`
 
