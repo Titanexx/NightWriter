@@ -47,16 +47,54 @@ docker-compose up -d
 cd front
 npm install .
 npm run build
-cd ..
-cp .env.example .env
-go run .
+cd ../server
+cp ../front/dist .
+go build
 ```
 
 Enjoy !
 
 # How to install on a server ?
+## With host
+### The frontend
 
-It's coming.
+The frontend uses [vitejs](https://github.com/vitejs/vite)
+
+Prequesite : node 16.x
+
+```
+cd front
+npm intall .
+npm run .
+```
+
+### The server
+
+## With docker compose
+
+I assume that Docker and Docker Compose are installed.
+
+1.Clone the repo : `git clone https://github.com/Titanexx/NightWriter && cd NightWriter`
+2.Launch the server:
+    1. Build the frontend : `docker-compose run frontend`
+    2. Start the server : `docker-compose up" (or "docker-compose up -d" if you want detach it)`
+
+- Rebuild the server:
+1. `docker-compose stop`
+2. `docker-compose build server`
+3. `docker-compose up` 
+
+- Rebuild the frontend:
+2. `docker-compose run frontend`
+3. `docker-compose restart`
+
+# How dev on NightWriter ?
+
+You need 2 terminals, one for the frontend and the other for the server.
+Once your are inside each folder (`front` and `server`), run : `docker-compose up`
+
+The docker for the front has hotreloading but not the server's docker. You need to stop it and run again at each modifications.
+
 
 # Licenses
 

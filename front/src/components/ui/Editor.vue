@@ -93,7 +93,6 @@ onMounted(()=>{
             }
         }
         plugins = plugins.concat([...cws.plugins])
-        console.log(plugins)
     }
     editor = Editor.factory({
         el: toastuiEditor.value,

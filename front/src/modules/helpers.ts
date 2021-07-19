@@ -12,7 +12,7 @@ export function getLast(array: any[]){
 }
 
 export function getWSServerUrl(){
-    return `${import.meta.env.VITE_BASE_WS_URL}`
+    return import.meta.env.VITE_HTTPS == "true" ? `wss://${window.location.host}` : `ws://${window.location.host}`
 }
 
 export function findAttachmentIDs(md: string, url: string){

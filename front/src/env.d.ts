@@ -1,4 +1,5 @@
 interface ImportMetaEnv {
-    VITE_HTTP_URL: string,
-    VITE_WS_URL : string
+    VITE_SERVER_DOMAIN: string,
+    VITE_SERVER_PORT: string,
+    VITE_HTTPS: string
 }

@@ -1,0 +1,20 @@
+# Use postgres/example user/password credentials
+version: '3.9'
+
+services:
+    front:
+        container_name: nightwriter-dev-front
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: dev
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+            - VITE_SERVER_DOMAIN=host.docker.internal
+            - VITE_SERVER_PORT=8080
+            - VITE_HTTPS=false
+        ports:
+            - 8081:8081
+        volumes:
+            - .:/app
+            - /app/node_modules

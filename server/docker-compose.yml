@@ -4,7 +4,7 @@ version: '3.9'
 services:
     redis:
         image: docker.io/bitnami/redis:6.2
-        container_name: nightwriter-redis
+        container_name: nightwriter-dev-redis
         restart: always
         environment:
             REDIS_DISABLE_COMMANDS: FLUSHDB,FLUSHALL
@@ -16,7 +16,7 @@ services:
     
     db:
         image: postgres:alpine
-        container_name: nightwriter-db
+        container_name: nightwriter-dev-db
         restart: always
         environment:
             POSTGRES_USER: nightwriter
@@ -26,13 +26,13 @@ services:
             - 5432:5432
         volumes:
             - db_data:/var/lib/postgresql/data
-
+    
     server:
-        container_name: nightwriter-server
+        container_name: nightwriter-dev-server
         build:
-            context: ./server
+            context: ./
             dockerfile: Dockerfile
-            target: prod
+            target: debug
         restart: always
         depends_on:
             - "db"
@@ -54,27 +54,8 @@ services:
         ports:
             - 8080:8080
         volumes:
-            - ./front/dist:/nightwriter/dist:ro
-    
-    frontend:
-        container_name: nightwriter-front-builder
-        profiles: ["frontend"]
-        build:
-            context: ./front
-            dockerfile: Dockerfile
-            target: prod
-        environment:
-            - VITE_HTTPS=false
-        volumes:
-            - ./front/dist:/app/dist
-                    
-    adminer:
-        image: adminer
-        container_name: nightwriter-adminer
-        profiles: ["adminer"]
-        restart: always
-        ports:
-            - 9080:8080
+            - .:/nightwriter
+
 volumes:
     redis_data:
         driver: local

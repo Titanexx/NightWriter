@@ -4,7 +4,8 @@
   "scripts": {
     ".": "vite --port 8081",
     "dev": "vite --port 8081",
-    "build": "vite build",
+    "dev-docker": "vite --port 8081 --host",
+    "build": "vite build --emptyOutDir",
     "serve": "vite preview --port 8081"
   },
   "dependencies": {
@@ -28,13 +29,14 @@
     "yjs": "^13.5.11"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/eslint-parser": "^7.14.7",
     "@tailwindcss/forms": "^0.3.3",
     "@types/node-forge": "^0.10.0",
     "@vitejs/plugin-vue": "^1.2.4",
     "@vue/compiler-sfc": "^3.1.4",
     "autoprefixer": "^10.2.6",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.30.0",
+    "eslint": "^7.31.0",
     "eslint-plugin-vue": "^7.12.1",
     "postcss": "^8.3.5",
     "postcss-import": "^14.0.2",

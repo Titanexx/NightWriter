@@ -41,8 +41,6 @@ export class CollabWS {
         this.type = this.doc.getXmlFragment('prosemirror')
 
         collabWebSockets[this.id] = this
-        console.log("cws.constructor")
-
     }
 
     updateYDocHandler(self){
