@@ -79,7 +79,7 @@ go run .
 
 ## With docker compose
 
-I assume that Docker and Docker Compose are installed.
+Prequesites: Docker and Docker Compose
 
 1. Clone the repo : `git clone https://github.com/Titanexx/NightWriter && cd NightWriter`
 2. Launch the server:
