@@ -3,7 +3,7 @@
         <form @submit.prevent="submit" class="py-4 px-10">
         <h1 class="text-2xl font-bold mb-5">Register</h1>
 
-		<router-link :to="{name:'login'}"><button type="button" class="btn-secondary border-none w-full">Already register ? Go sign in.</button></router-link>
+		<router-link :to="{name:'login'}"><button type="button" class="btn-secondary border-none w-full">Already registered? Go sign in.</button></router-link>
 
         <Input type="text" label="Username" placeholder="Username" name="username" :v$="v$" v-model="form.username" required/>
         
