@@ -9,8 +9,8 @@ services:
         environment:
             REDIS_DISABLE_COMMANDS: FLUSHDB,FLUSHALL
             REDIS_PASSWORD: nightwriter
-        ports:
-            - 6379:6379
+        # ports:
+        #     - 6379:6379
         volumes:
             - redis_data:/bitnami/redis/data
     
@@ -22,10 +22,19 @@ services:
             POSTGRES_USER: nightwriter
             POSTGRES_DB: nightwriter
             POSTGRES_PASSWORD: nightwriter
-        ports:
-            - 5432:5432
+        # ports:
+        #     - 5432:5432
         volumes:
             - db_data:/var/lib/postgresql/data
+    
+    adminer:
+        image: adminer
+        container_name: nightwriter-dev-adminer
+        restart: always
+        depends_on:
+            - "db"
+        ports:
+          - 9010:8080
     
     server:
         container_name: nightwriter-dev-server
@@ -52,7 +61,7 @@ services:
             - DB_PASSWORD=nightwriter
             - DB_NAME=nightwriter
         ports:
-            - 8080:8080
+            - 127.0.0.1:8080:8080
         volumes:
             - .:/nightwriter
 

@@ -7,6 +7,8 @@ var _token: string = "";
 const user= ref();
 const isAuthenticated = ref(false);
 
+// console.log(useApi);
+
 function setToken(token: string){
     const jwt = JSON.parse(atob(token.split('.')[1]));
     const timeout = new Date(jwt.exp * 1000).getTime() - Date.now() - (30 * 1000);

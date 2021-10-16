@@ -5,7 +5,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 FROM base as dev
 CMD ["npm", "run", "dev-docker"]

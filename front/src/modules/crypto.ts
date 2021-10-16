@@ -26,7 +26,7 @@ function genKeys(password: string, next: Function, ifErr: Function){
         if(err === null){
             const pem = {
                 public: forge.pki.publicKeyToPem(keypair.publicKey),
-                private: forge.util.encode64(salt) + forge.pki.encryptRsaPrivateKey(keypair.privateKey, key,{algorithm: alg}),
+                private: forge.util.encode64(salt) + "|" + forge.pki.encryptRsaPrivateKey(keypair.privateKey, key,{algorithm: alg}),
             }
             next(pem)
         } else {
@@ -41,11 +41,12 @@ function genIV(){
 }
 
 function loadKeys(pem: Keys, password:string, remember=false) {
-    const salt = forge.util.decode64(pem.private.split('-----BEGIN ENCRYPTED PRIVATE KEY-----')[0]);
+    var private_data = pem.private.split('|');
+    const salt = forge.util.decode64(private_data[0]);
     const key = forge.pkcs5.pbkdf2(password, salt, keyIts, keyLen);
     
     //@ts-ignore
-    const privateKey = forge.pki.decryptRsaPrivateKey(pem.private,key,{algorithm: alg}) 
+    const privateKey = forge.pki.decryptRsaPrivateKey(private_data[1],key,{algorithm: alg}) 
 
     if(privateKey == null){
         keys.public = undefined

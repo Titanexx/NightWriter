@@ -28,7 +28,7 @@
             <div class="px-2 w-1/2 overflow-hidden">
             <Input type="password" label="Confirm Master Password" placeholder="Confirm your Master Password" name="confirm_masterpassword" :v$="v$" v-model="form.confirm_masterpassword" required/>
             </div>
-            <p class="px-2 w-full mt-2 text-sm text-left">The master password is used to encrypted your private key. It must be long and robust. Save it into your Keepass. Keys generation can be long. Wait please.</p>
+            <p class="px-2 w-full mt-2 text-sm text-left">The master password is used to encrypted your private key. It must be long and robust. Save it into your password manager. Keys generation can be long. Please wait.</p>
         </div>
 
         <div class="flex w-full mt-8">
